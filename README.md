@@ -14,7 +14,7 @@ A local service that gives [Avante.nvim](https://github.com/yetone/avante.nvim) 
 ```
 Avante.nvim (by yetone)
   ↓
-moonshot-local API (FastAPI)
+local-moonie API (FastAPI)
   ↓
 Search Decision Engine
   ↓
@@ -66,7 +66,7 @@ If not running:
 ollama serve
 ```
 
-### 3. Install moonshot-local
+### 3. Install local-moonie
 
 **Option A: Install from AUR (Arch Linux):**
 ```bash
@@ -81,7 +81,7 @@ pip install local_moonie
 **Option C: Install from source:**
 ```bash
 git clone https://github.com/gub-7/local_moonie.git
-cd moonshot-local
+cd local-moonie
 pip install -e .
 ```
 
@@ -126,12 +126,12 @@ HEADLESS_BROWSER=false  # false = visible, true = headless
 
 **Or manually:**
 ```bash
-python -m moonshot_local.app.main
+python -m local_moonie.app.main
 ```
 
 **Or with uvicorn:**
 ```bash
-uvicorn moonshot_local.app.main:app --host 127.0.0.1 --port 8080
+uvicorn local_moonie.app.main:app --host 127.0.0.1 --port 8080
 ```
 
 ### 6. Test
@@ -160,8 +160,8 @@ return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   opts = {
-    -- Use moonshot_local as provider
-    provider = "moonshot_local",
+    -- Use local_moonie as provider
+    provider = "local_moonie",
 
     behaviour = {
       -- Fast Apply requires separate Morph service
@@ -169,7 +169,7 @@ return {
     },
 
     providers = {
-      moonshot_local = {
+      local_moonie = {
         -- Inherit OpenAI-compatible behavior
         __inherited_from = "openai",
 
@@ -180,7 +180,7 @@ return {
         api_key_name = "MOONSHOT_LOCAL_API_KEY",
 
         -- Model name
-        model = "moonshot-local",
+        model = "local-moonie",
 
         -- Optional settings
         temperature = 0.2,
@@ -210,7 +210,7 @@ export MOONSHOT_LOCAL_API_KEY=your-secret-key-here
 
 ### Use in Avante
 
-1. Start moonshot-local: `./start.sh`
+1. Start local-moonie: `./start.sh`
 2. Open Neovim
 3. Use [Avante](https://github.com/yetone/avante.nvim) commands as normal
 
@@ -227,7 +227,7 @@ export MOONSHOT_LOCAL_API_KEY=your-secret-key-here
 ```
 User in Avante: "Write quicksort in Python"
   ↓
-moonshot-local: No search keywords detected
+local-moonie: No search keywords detected
   ↓
 Ollama (llama3.2:3b): Generate code
   ↓
@@ -239,7 +239,7 @@ Stream back to Avante
 ```
 User in Avante: "What are the latest features in FastAPI?"
   ↓
-moonshot-local: Detected "latest" keyword
+local-moonie: Detected "latest" keyword
   ↓
 Firefox + Selenium: Search Google
   ↓
@@ -280,7 +280,7 @@ Main endpoint for chat completions.
 **Request:**
 ```json
 {
-  "model": "moonshot-local",
+  "model": "local-moonie",
   "messages": [
     {"role": "user", "content": "Your prompt here"}
   ],
@@ -295,7 +295,7 @@ curl http://127.0.0.1:8080/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer your-secret-key-here" \
   -d '{
-    "model": "moonshot-local",
+    "model": "local-moonie",
     "messages": [{"role": "user", "content": "Hello"}],
     "stream": false
   }'
@@ -307,7 +307,7 @@ curl http://127.0.0.1:8080/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer your-secret-key-here" \
   -d '{
-    "model": "moonshot-local",
+    "model": "local-moonie",
     "messages": [{"role": "user", "content": "latest Python features"}],
     "stream": true
   }'
@@ -344,7 +344,7 @@ HEADLESS_BROWSER=false
 ## Project Structure
 
 ```
-moonshot_local/
+local_moonie/
 ├── app/
 │   ├── main.py              # FastAPI routes
 │   ├── schemas.py           # Pydantic models (OpenAI-compatible)
@@ -364,7 +364,7 @@ start.sh                     # Quick start script
 test_api.sh                  # Test script
 example_client.py            # Python example client
 avante_config.lua            # Avante config example
-moonshot-local.service       # systemd service file
+local-moonie.service       # systemd service file
 ```
 
 ## Upgrading the Model
@@ -464,27 +464,27 @@ echo $MOONSHOT_LOCAL_API_KEY
 
 ```bash
 # Copy service file
-sudo cp moonshot-local.service /etc/systemd/system/
+sudo cp local-moonie.service /etc/systemd/system/
 
 # Edit paths if needed
-sudo nano /etc/systemd/system/moonshot-local.service
+sudo nano /etc/systemd/system/local-moonie.service
 
 # Enable and start
-sudo systemctl enable moonshot-local
-sudo systemctl start moonshot-local
+sudo systemctl enable local-moonie
+sudo systemctl start local-moonie
 
 # Check status
-sudo systemctl status moonshot-local
+sudo systemctl status local-moonie
 
 # View logs
-sudo journalctl -u moonshot-local -f
+sudo journalctl -u local-moonie -f
 ```
 
 ## Advanced Usage
 
 ### Custom Search Keywords
 
-Edit `moonshot_local/app/search_decider.py`:
+Edit `local_moonie/app/search_decider.py`:
 
 ```python
 SEARCH_KEYWORDS = {
@@ -495,7 +495,7 @@ SEARCH_KEYWORDS = {
 
 ### Multiple Search Queries
 
-Edit `moonshot_local/app/search_decider.py`:
+Edit `local_moonie/app/search_decider.py`:
 
 ```python
 def generate_queries(messages: list[Message], max_queries: int = 3):  # Changed from 1

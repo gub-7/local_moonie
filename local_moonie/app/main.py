@@ -230,11 +230,11 @@ async def health():
 
 
 def main():
-    """CLI entry point for moonshot-local."""
+    """CLI entry point for local-moonie."""
     import uvicorn
 
     uvicorn.run(
-        "moonshot_local.app.main:app",
+        "local_moonie.app.main:app",
         host=config.HOST,
         port=config.PORT,
         reload=False,

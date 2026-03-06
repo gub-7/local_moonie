@@ -34,7 +34,7 @@ This project has been prepared for packaging as `python-local_moonie` in the Arc
 
 ### 2. Updated Application Code
 
-#### `moonshot_local/app/config.py`
+#### `local_moonie/app/config.py`
 - **Added multi-location env file search**:
   1. `./.env` (current directory - for development)
   2. `/etc/local-moonie/config.env` (system-wide - for AUR install)
@@ -44,7 +44,7 @@ This project has been prepared for packaging as `python-local_moonie` in the Arc
   - Returns the absolute path of the loaded env file
   - Returns `None` if no file was found (env vars only)
 
-#### `moonshot_local/app/main.py`
+#### `local_moonie/app/main.py`
 - **Added config file path logging on startup**:
   - Logs the actual file path being used for configuration
   - Shows "environment variables only" if no file was found
@@ -173,7 +173,7 @@ yay -S python-local_moonie
 | File | Location | Purpose |
 |------|----------|---------|
 | Binary | `/usr/bin/local_moonie` | CLI entry point |
-| Python package | `/usr/lib/python3.*/site-packages/moonshot_local/` | Application code |
+| Python package | `/usr/lib/python3.*/site-packages/local_moonie/` | Application code |
 | Config | `/etc/local-moonie/config.env` | System-wide configuration |
 | Service | `/usr/lib/systemd/system/local_moonie.service` | Systemd service |
 | License | `/usr/share/licenses/python-local_moonie/LICENSE` | MIT license |

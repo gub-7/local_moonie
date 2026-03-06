@@ -59,17 +59,17 @@ Issues = "https://github.com/gub-7/local_moonie/issues"
 "Avante.nvim" = "https://github.com/yetone/avante.nvim"
 
 [project.scripts]
-moonshot-local = "moonshot_local.app.main:main"
+local-moonie = "local_moonie.app.main:main"
 
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["moonshot_local", "moonshot_local.app"]
+packages = ["local_moonie", "local_moonie.app"]
 
 [tool.setuptools.package-data]
-moonshot_local = ["py.typed"]
+local_moonie = ["py.typed"]
 
 [tool.ruff]
 line-length = 100

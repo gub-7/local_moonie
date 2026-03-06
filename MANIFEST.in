@@ -6,5 +6,5 @@ include start.sh
 include test_api.sh
 include example_client.py
 include avante_config.lua
-include moonshot-local.service
+include local-moonie.service
 

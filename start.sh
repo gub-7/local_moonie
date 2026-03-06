@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Quick start script for moonshot-local
+# Quick start script for local-moonie
 # Local proxy for Avante.nvim by @yetone: https://github.com/yetone/avante.nvim
 
 set -e
 
-echo "🚀 Starting moonshot-local proxy..."
+echo "🚀 Starting local-moonie proxy..."
 echo "   (Local proxy for Avante.nvim by @yetone)"
 echo ""
 
@@ -46,5 +46,5 @@ echo ""
 
 # Start the server
 echo "🌐 Starting server..."
-python -m moonshot_local.app.main
+python -m local_moonie.app.main
 
