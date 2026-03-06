@@ -1,15 +1,15 @@
 [project]
-name = "moonshot-local"
+name = "local_moonie"
 version = "0.1.0"
 description = "Local OpenAI-compatible proxy with Firefox/Selenium search + Ollama backend for Avante.nvim by @yetone"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
-    {name = "moonshot-local contributors"}
+    {name = "local_moonie contributors"}
 ]
 maintainers = [
-    {name = "moonshot-local contributors"}
+    {name = "local_moonie contributors"}
 ]
 keywords = [
     "avante",
@@ -52,10 +52,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/moonshot-local"
-Documentation = "https://github.com/yourusername/moonshot-local#readme"
-Repository = "https://github.com/yourusername/moonshot-local"
-Issues = "https://github.com/yourusername/moonshot-local/issues"
+Homepage = "https://github.com/gub-7/local_moonie"
+Documentation = "https://github.com/gub-7/local_moonie#readme"
+Repository = "https://github.com/gub-7/local_moonie"
+Issues = "https://github.com/gub-7/local_moonie/issues"
 "Avante.nvim" = "https://github.com/yetone/avante.nvim"
 
 [project.scripts]

@@ -1,8 +1,20 @@
 """Configuration management."""
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+# Search for env file in multiple locations
+_env_file_locations = [
+    Path.cwd() / ".env",  # Current directory (development)
+    Path("/etc/local-moonie/config.env"),  # System-wide installation
+]
+
+_loaded_env_file = None
+for env_path in _env_file_locations:
+    if env_path.exists():
+        load_dotenv(env_path)
+        _loaded_env_file = str(env_path.absolute())
+        break
 
 
 class Config:
@@ -25,6 +37,11 @@ class Config:
     
     # Model exposed to Avante
     EXPOSED_MODEL: str = "moonshot-local"
+
+    @staticmethod
+    def get_env_file_path() -> str | None:
+        """Return the path of the loaded env file, or None if no file was loaded."""
+        return _loaded_env_file
 
 
 config = Config()

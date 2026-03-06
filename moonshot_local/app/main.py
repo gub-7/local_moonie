@@ -38,6 +38,14 @@ security = HTTPBearer(auto_error=False)
 async def lifespan(app: FastAPI):
     """Application lifespan manager."""
     logger.info("Starting moonshot-local proxy")
+
+    # Display env file path
+    env_file_path = config.get_env_file_path()
+    if env_file_path:
+        logger.info("Configuration loaded from: %s", env_file_path)
+    else:
+        logger.info("Configuration loaded from: environment variables only (no .env file found)")
+
     logger.info("Ollama host: %s", config.OLLAMA_HOST)
     logger.info("Ollama model: %s", config.OLLAMA_MODEL)
     logger.info("Listening on: %s:%s", config.HOST, config.PORT)

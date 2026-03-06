@@ -68,20 +68,32 @@ ollama serve
 
 ### 3. Install moonshot-local
 
-**Option A: Install from PyPI (recommended):**
+**Option A: Install from AUR (Arch Linux):**
 ```bash
-pip install moonshot-local
+yay -S python-local_moonie
 ```
 
-**Option B: Install from source:**
+**Option B: Install from PyPI:**
 ```bash
-git clone https://github.com/yourusername/moonshot-local.git
+pip install local_moonie
+```
+
+**Option C: Install from source:**
+```bash
+git clone https://github.com/gub-7/local_moonie.git
 cd moonshot-local
 pip install -e .
 ```
 
 ### 4. Configure
 
+**For AUR installation:**
+```bash
+# Edit the system-wide config
+sudo nano /etc/local-moonie/config.env
+```
+
+**For PyPI/source installation:**
 ```bash
 # Copy example config
 cp .env.example .env
@@ -90,18 +102,20 @@ cp .env.example .env
 nano .env
 ```
 
-**Important settings in .env:**
+**Important settings:**
 ```bash
 # Ollama backend (adjust to your setup)
 OLLAMA_HOST=http://127.0.0.1:11434
 OLLAMA_MODEL=llama3.2:3b
 
-# Set a secure API key
-API_KEY=your-secret-key-here
+# Set a secure API key (optional - leave empty for no auth)
+API_KEY=
 
 # Browser visibility
 HEADLESS_BROWSER=false  # false = visible, true = headless
 ```
+
+**Note:** The service will log the configuration file path on startup, so you always know which file it's reading from.
 
 ### 5. Start Server
 
