@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 # Test script for moonshot-local
+# Local proxy for Avante.nvim by @yetone: https://github.com/yetone/avante.nvim
 
 API_URL="http://127.0.0.1:8080"
 API_KEY="${MOONSHOT_LOCAL_API_KEY:-your-secret-key-here}"
 
 echo "🧪 Testing moonshot-local API"
+echo "   (Local proxy for Avante.nvim by @yetone)"
 echo ""
 
 # Test 1: Health check

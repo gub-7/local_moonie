@@ -2,6 +2,9 @@
 """
 Example client demonstrating moonshot-local usage.
 Shows both non-streaming and streaming requests.
+
+moonshot-local: Local proxy for Avante.nvim by @yetone
+https://github.com/yetone/avante.nvim
 """
 import os
 import httpx

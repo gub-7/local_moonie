@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # Quick start script for moonshot-local
+# Local proxy for Avante.nvim by @yetone: https://github.com/yetone/avante.nvim
 
 set -e
 
 echo "🚀 Starting moonshot-local proxy..."
+echo "   (Local proxy for Avante.nvim by @yetone)"
 echo ""
 
 # Check if .env exists

@@ -48,7 +48,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Moonshot-Local",
-    description="Local OpenAI-compatible proxy with Firefox/Selenium search + Ollama backend",
+    description="Local OpenAI-compatible proxy with Firefox/Selenium search + Ollama backend for Avante.nvim by @yetone (https://github.com/yetone/avante.nvim)",
     version="0.1.0",
     lifespan=lifespan,
 )
