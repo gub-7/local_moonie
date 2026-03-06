@@ -1,0 +1,17 @@
+[Unit]
+Description=Moonshot-Local OpenAI-compatible proxy with Ollama + Firefox search
+After=network.target
+
+[Service]
+Type=simple
+User=gabe
+WorkingDirectory=/home/gabe/tmpcode/local_moonie
+Environment="PATH=/usr/bin:/usr/local/bin"
+EnvironmentFile=/home/gabe/tmpcode/local_moonie/.env
+ExecStart=/usr/bin/python -m moonshot_local.app.main
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+
