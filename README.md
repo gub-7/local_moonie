@@ -68,10 +68,15 @@ ollama serve
 
 ### 3. Install moonshot-local
 
+**Option A: Install from PyPI (recommended):**
 ```bash
-cd /path/to/local_moonie
+pip install moonshot-local
+```
 
-# Install dependencies
+**Option B: Install from source:**
+```bash
+git clone https://github.com/yourusername/moonshot-local.git
+cd moonshot-local
 pip install -e .
 ```
 

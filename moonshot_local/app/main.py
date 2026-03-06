@@ -221,13 +221,18 @@ async def health():
     return {"status": "ok"}
 
 
-if __name__ == "__main__":
+def main():
+    """CLI entry point for moonshot-local."""
     import uvicorn
-    
+
     uvicorn.run(
         "moonshot_local.app.main:app",
         host=config.HOST,
         port=config.PORT,
         reload=False,
     )
+
+
+if __name__ == "__main__":
+    main()
 

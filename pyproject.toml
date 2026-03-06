@@ -2,7 +2,39 @@
 name = "moonshot-local"
 version = "0.1.0"
 description = "Local OpenAI-compatible proxy with Firefox/Selenium search + Ollama backend for Avante.nvim by @yetone"
+readme = "README.md"
 requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "moonshot-local contributors"}
+]
+maintainers = [
+    {name = "moonshot-local contributors"}
+]
+keywords = [
+    "avante",
+    "neovim",
+    "ollama",
+    "llm",
+    "openai",
+    "selenium",
+    "web-search",
+    "local-ai",
+    "fastapi",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Framework :: FastAPI",
+]
 dependencies = [
     "fastapi>=0.109.0",
     "uvicorn[standard]>=0.27.0",
@@ -19,14 +51,35 @@ dev = [
     "ruff>=0.1.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/yourusername/moonshot-local"
+Documentation = "https://github.com/yourusername/moonshot-local#readme"
+Repository = "https://github.com/yourusername/moonshot-local"
+Issues = "https://github.com/yourusername/moonshot-local/issues"
+"Avante.nvim" = "https://github.com/yetone/avante.nvim"
+
+[project.scripts]
+moonshot-local = "moonshot_local.app.main:main"
+
 [build-system]
-requires = ["setuptools>=68.0"]
+requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["moonshot_local", "moonshot_local.app"]
+
+[tool.setuptools.package-data]
+moonshot_local = ["py.typed"]
 
 [tool.ruff]
 line-length = 100
 target-version = "py311"
 
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = []
+
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
+testpaths = ["tests"]
 

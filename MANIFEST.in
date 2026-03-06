@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include .env.example
+include pyproject.toml
+include start.sh
+include test_api.sh
+include example_client.py
+include avante_config.lua
+include moonshot-local.service
+
